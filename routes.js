@@ -4,6 +4,7 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const { User, Course } = require('./models');
 const { asyncHandler } = require('./middleware/async-handler');
+const { authenticateUser } = require('./middleware/auth-user');
 
 // Construct a router instance.
 const router = express.Router();
@@ -12,7 +13,7 @@ const router = express.Router();
  * * User Routes
  */
 // Route that returns all properties and values for currently authenticated user.
-router.get('/users', asyncHandler(async(req, res) => {
+router.get('/users', authenticateUser, asyncHandler(async(req, res) => {
     const user = req.currentUser;
     res.json({
         name: `${user.firstName} ${user.lastName}`,
@@ -53,13 +54,13 @@ router.get('/courses/:id', asyncHandler(async(req, res) => {
 }));
 
 // Route that wil create a new course
-router.post('/courses', asyncHandler(async(req, res) => {
+router.post('/courses', authenticateUser, asyncHandler(async(req, res) => {
     const course = await Course.create(req.body);
     res.status(201).location(`/courses/${course.id}`).end();
 }));
 
 // Route that will update the correspoding course
-router.put('/courses/:id', asyncHandler(async(req, res) => {
+router.put('/courses/:id', authenticateUser, asyncHandler(async(req, res) => {
     const course = await Course.findByPk(req.params.id);
     if (course) {
         course.title = req.body.title;
@@ -73,7 +74,7 @@ router.put('/courses/:id', asyncHandler(async(req, res) => {
 }));
 
 // Route that will delete corresponding course
-router.delete('/courses/:id', asyncHandler(async(req, res) => {
+router.delete('/courses/:id', authenticateUser, asyncHandler(async(req, res) => {
     const course = await Course.findByPk(req.params.id);
     if (course) {
         await Course.delete(course);
