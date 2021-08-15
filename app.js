@@ -3,6 +3,7 @@
 // load modules
 const express = require('express');
 const morgan = require('morgan');
+const routes = require('./routes');
 const { sequelize } = require('./models');
 
 // variable to enable global error logging
@@ -20,6 +21,9 @@ app.get('/', (req, res) => {
     message: 'Welcome to the REST API project!',
   });
 });
+
+// Add routes.
+//app.use('/api', routes);
 
 // send 404 if no other route matched
 app.use((req, res) => {
@@ -53,7 +57,10 @@ app.set('port', process.env.PORT || 5000);
   }
 })();
 
-// start listening on our port
-const server = app.listen(app.get('port'), () => {
-  console.log(`Express server is listening on port ${server.address().port}`);
-});
+// Sequelize model synchronization, then start listening on our port.
+sequelize.sync()
+  .then( () => {
+    const server = app.listen(app.get('port'), () => {
+      console.log(`Express server is listening on port ${server.address().port}`);
+    });
+  });

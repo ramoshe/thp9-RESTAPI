@@ -22,11 +22,6 @@ module.exports = (sequelize) => {
         },
         estimatedTime: {
             type: DataTypes.TEXT,
-            allowNull: false,
-            validate: {
-                notNull: { msg: 'An estimated time is required' },
-                notEmpty: { msg: 'Please provide an estimated time' }
-            }
         },
         materialsNeeded: {
             type: DataTypes.TEXT,
