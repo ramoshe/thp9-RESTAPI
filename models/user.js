@@ -34,11 +34,7 @@ module.exports = (sequelize) => {
             allowNull: false,
             validate: {
                 notNull: { msg: 'A password is required' },
-                notEmpty: { msg: 'Please provide a password' },
-                len: {
-                    args: [8, 20],
-                    msg: 'The password should be between 8 and 20 characters in length'
-                }
+                notEmpty: { msg: 'Please provide a password' }
             }
         }
     }, { sequelize });
@@ -46,7 +42,7 @@ module.exports = (sequelize) => {
     User.associate = (models) => {
         User.hasMany(models.Course, {
             foreignKey: {
-                fieldname: 'userId',
+                name: 'userId',
                 allowNull: false
             }
         })
