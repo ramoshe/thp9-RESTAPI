@@ -57,13 +57,14 @@ router.post('/courses', authenticateUser, asyncHandler(async(req, res) => {
 }));
 
 // Route that will update the correspoding course
-router.put('/courses/:id', authenticateUser, asyncHandler(async(req, res) => {
+router.put('/courses/:id', asyncHandler(async(req, res) => {
     const course = await Course.findByPk(req.params.id);
     if (course) {
         course.title = req.body.title;
         course.description = req.body.description;
         course.estimatedTime = req.body.estimatedTime;
         course.materialsNeeded = req.body.materialsNeeded;
+        await Course.update({ course }, { where: { id: req.params.id } });
         res.status(204).end();
     } else {
         res.status(404).json({ message: 'No course to update.' });
@@ -74,7 +75,7 @@ router.put('/courses/:id', authenticateUser, asyncHandler(async(req, res) => {
 router.delete('/courses/:id', authenticateUser, asyncHandler(async(req, res) => {
     const course = await Course.findByPk(req.params.id);
     if (course) {
-        await Course.delete(course);
+        await Course.destroy({ where: { id: req.params.id } });
         res.status(204).end();
     } else {
         res.status(404).json({ message: 'No course to delete' } )
