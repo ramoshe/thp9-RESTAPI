@@ -47,7 +47,12 @@ router.post('/users', asyncHandler(async (req, res) => {
 // Route that will READ (show) list of all courses
 router.get('/courses', asyncHandler(async(req, res) => {
     const courses = await Course.findAll({
-        attributes: { exclude: ['createdAt', 'updatedAt'] }
+        attributes: { exclude: ['createdAt', 'updatedAt'] },
+        include: [ { 
+            model: User, 
+            as: 'user', 
+            attributes: { exclude: ['password', 'createdAt', 'updatedAt'] }
+        } ]
     });
     res.json({ courses });
 }));
@@ -56,12 +61,17 @@ router.get('/courses', asyncHandler(async(req, res) => {
 router.get('/courses/:id', asyncHandler(async(req, res) => {
     const course = await Course.findOne({
         where: {id: req.params.id},
-        attributes: { exclude: ['createdAt', 'updatedAt'] }
+        attributes: { exclude: ['createdAt', 'updatedAt'] },
+        include: [ { 
+            model: User, 
+            as: 'user', 
+            attributes: { exclude: ['password', 'createdAt', 'updatedAt'] } 
+        } ]
     });
     res.json({ course });
 }));
 
-// Route that wil CREATE a new course
+// Route that will CREATE a new course
 router.post('/courses', authenticateUser, asyncHandler(async(req, res) => {
     try {
         const course = await Course.create(req.body);
