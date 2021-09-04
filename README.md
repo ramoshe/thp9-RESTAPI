@@ -9,7 +9,7 @@
     4. Run `npm install` to install all project dependencies
     5. Run `npm run seed` to load the seed data
     6. Run `npm start` to get the project running on port 5000
-    7. Load the `RESTAPI.postman_collection.json` file into Postman to test. If you don't have Postman [you can download it here](https://www.getpostman.com/downloads/).
+    7. Load the `RESTAPI.postman_collection.json` file into Postman to test all of the API's routes. If you don't have Postman [you can download it here](https://www.getpostman.com/downloads/).
 
 
 ## Project Description
