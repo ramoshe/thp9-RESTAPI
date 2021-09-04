@@ -1,5 +1,5 @@
 # FSJS Project 9: REST API
-My ninth project for the Full Stack JavaScript Techdegree program at Treehouse. An API for administering a school database containing users and courses. This project is used to support [Project 10](https://github.com/ramoshe/thp10-fullStackApp) which adds a React frontend to create a complete app.
+My ninth project for the Full Stack JavaScript Techdegree program at Treehouse. An API for administering a school database of users and courses. This project is used to support [Project 10](https://github.com/ramoshe/thp10-fullStackApp) which adds a React frontend to create a complete app.
 
 ## How To Use
  - You can view a live version of this project here: https://g.ramoshe.com/thp9-RESTAPI/
