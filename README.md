@@ -1,5 +1,5 @@
 # FSJS Project 9: REST API
- An API for administering a school database containing users and courses
+My ninth project for the Full Stack JavaScript Techdegree program at Treehouse. An API for administering a school database containing users and courses.
 
 ## How To Use
  - You can view a live version of this project here: https://g.ramoshe.com/thp9-RESTAPI/
