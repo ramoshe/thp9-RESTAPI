@@ -1,25 +1,25 @@
 require('dotenv').config();
-const { DB_HOST, DB_NAME, DB_USER, DB_PASS, DB_URI } = process.env;
+const { DB_HOST, DB_USERNAME, DB_PASSWORD, DB_URI } = process.env;
 
 module.exports = {
   "development": {
-    "username": 'postgres',
-    "password": 'postgres',
+    "username": DB_USERNAME,
+    "password": DB_PASSWORD,
     "database": "courseapi_database_dev",
-    "host": '127.0.0.1',
+    "host": DB_HOST,
     "dialect": "postgres"
   },
   "test": {
-    "username": DB_USER,
-    "password": DB_PASS,
+    "username": DB_USERNAME,
+    "password": DB_PASSWORD,
     "database": "courseapi_database_test",
     "host": DB_HOST,
     "dialect": "postgres"
   },
   "production": {
-    "username": DB_USER,
-    "password": DB_PASS,
-    "database": DB_NAME,
+    "username": DB_USERNAME,
+    "password": DB_PASSWORD,
+    "database": "d7o1kg98ers0fu",
     "host": DB_HOST,
     "uri": DB_URI,
     "dialect": "postgres",

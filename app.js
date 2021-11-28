@@ -52,7 +52,7 @@ app.use((err, req, res, next) => {
 });
 
 // set our port
-app.set('port', process.env.PORT);
+app.set('port', 5432);
 
 // Test the database connection.
 (async () => {

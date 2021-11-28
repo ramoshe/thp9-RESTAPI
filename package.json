@@ -5,7 +5,6 @@
   "main": "app.js",
   "scripts": {
     "dev": "nodemon -r dotenv/config app.js",
-    "db:create": "sequelize-cli db:create",
     "start": "node ./app.js",
     "seed": "cross-env DB_ENABLE_LOGGING=true node './seed'"
   },
@@ -27,7 +26,6 @@
     "morgan": "^1.10.0",
     "pg": "^8.7.1",
     "pg-hstore": "^2.3.4",
-    "pgloader": "^1.1.6",
     "promise.prototype.finally": "^3.1.2",
     "sequelize": "^6.11.0",
     "sqlite3": "^5.0.0"
