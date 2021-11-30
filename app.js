@@ -20,7 +20,11 @@ app.use(express.json());
 app.use(morgan('dev'));
 
 // Enable all CORS Requests
-app.use(cors());
+var corsOptions = {
+  origin: 'http://example.com',
+  credentials: true
+}
+app.use(cors(corsOptions));
 
 // setup a friendly greeting for the root route
 app.get('/', (req, res) => {
