@@ -20,16 +20,12 @@ app.use(express.json());
 app.use(morgan('dev'));
 
 // Enable all CORS Requests
-var corsOptions = {
-  origin: 'http://example.com',
-  credentials: true
-}
-app.use(cors(corsOptions));
+app.use(cors());
 
 // setup a friendly greeting for the root route
 app.get('/', (req, res) => {
   res.json({
-    message: 'Welcome to the REST API project!',
+    message: 'Welcome to the Skills Academy Course Management REST API!',
   });
 });
 
