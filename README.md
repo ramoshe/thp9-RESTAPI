@@ -3,7 +3,7 @@ My ninth project for the Full Stack JavaScript Techdegree program at Treehouse. 
 
 ## How To Use
  - You can view the output of this API at https://thp9-restapi.herokuapp.com/api/
- - The client side app that uses this API is live at https://g.ramoshe.com/thp10-fullStackApp (the repo for the client app is at https://github.com/ramoshe/thp10-fullStackApp)
+ - The client side app that uses this API is live at https://g.ramoshe.com/thp10-fullStackApp
  - If you want a local copy of the project:
     1. Download the files: https://github.com/ramoshe/thp9-RESTAPI/archive/refs/heads/main.zip
     3. In the console, navigate to the main project folder
